@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://icp.docs.wso2.com/</loc>
+         <loc>https://anuruddhal.github.io/docs-icp/</loc>
          <lastmod>2025-11-10</lastmod>
     </url>
     <url>
-         <loc>https://icp.docs.wso2.com/page-not-found/</loc>
+         <loc>https://anuruddhal.github.io/docs-icp/page-not-found/</loc>
          <lastmod>2025-11-10</lastmod>
     </url>
     <url>
-         <loc>https://icp.docs.wso2.com/get-started/install-wso2-integrator-icp/</loc>
+         <loc>https://anuruddhal.github.io/docs-icp/get-started/install-wso2-integrator-icp/</loc>
          <lastmod>2025-11-10</lastmod>
     </url>
     <url>
-         <loc>https://icp.docs.wso2.com/get-started/quick-start-guide/</loc>
+         <loc>https://anuruddhal.github.io/docs-icp/get-started/quick-start-guide/</loc>
          <lastmod>2025-11-10</lastmod>
     </url>
 </urlset>

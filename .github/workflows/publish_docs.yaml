@@ -30,4 +30,6 @@ jobs:
           git config --global user.email "anuruddhal@wso2.com"
           git config --global user.name "anuruddhal"
           cd en/
-          mkdocs gh-deploy
+          mkdocs build
+          touch site/.nojekyll
+          mkdocs gh-deploy --dirty

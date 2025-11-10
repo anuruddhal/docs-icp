@@ -186,7 +186,6 @@ When a user logs in via SSO for the first time:
 ### Display Names
 
 ICP extracts display names from the identity provider using the following priority:
-
 1. `name` claim (full name)
 2. `email` claim (local part before @)
 3. `preferred_username` claim
@@ -194,7 +193,6 @@ ICP extracts display names from the identity provider using the following priori
 ### Username Claim
 
 The `ssoUsernameClaim` parameter determines which claim is used as the username:
-
 - **`email`** (recommended) - Uses the email address
 - **`preferred_username`** - Uses the preferred username
 
@@ -233,7 +231,6 @@ Then reference it in your deployment process.
 ✓ **Redirect URI must match exactly**
 
 The `ssoRedirectUri` in ICP configuration must **exactly match** the redirect URI registered with your identity provider:
-
 - Protocol (https)
 - Domain name
 - Path
@@ -249,7 +246,6 @@ The `ssoRedirectUri` in ICP configuration must **exactly match** the redirect UR
 **Cause**: SSO configuration is disabled or not properly loaded
 
 **Solutions**:
-
 1. Verify `ssoEnabled = true` in `conf/Deployment.toml`
 2. Restart the ICP server after configuration changes
 3. Check server startup logs for configuration validation errors
@@ -330,7 +326,3 @@ If you encounter issues:
 3. **Test connectivity** to identity provider endpoints
 4. **Review this guide** for common troubleshooting steps
 5. **Contact your identity provider support** for provider-specific issues
-
----
-
-**Last Updated**: November 2025

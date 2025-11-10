@@ -28,3 +28,8 @@ In this quick start guide, you will learn how to download, install, and start us
 3. You should be able redirected to the `Home` page of the ICP console.
 <a href="{{base_path}}/assets/img/get-started/quick-start-guide/home.png"><img src="{{base_path}}/assets/img/get-started/quick-start-guide/home.png" alt="introduction" width="70%"></a>
 
+## Step 4: Create an integration in ICP
+1. Create an integration in the ICP platform to establish the connection.
+2. A reference project with a pre-configured integration is available to guide your setup. Create your own project and configure integrations based on your specific requirements.
+
+<a href="{{base_path}}/assets/img/get-started/quick-start-guide/sample_integration.png"><img src="{{base_path}}/assets/img/get-started/quick-start-guide/sample_integration.png" alt="Sample Inegration" width="70%"></a>

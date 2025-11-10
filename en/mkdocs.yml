@@ -26,6 +26,9 @@ repo_url: https://github.com/wso2/docs-icp
 edit_uri: https://github.com/wso2/docs-icp/edit/main/en/docs/
 dev_addr: localhost:8000
 
+# Build directories
+use_directory_urls: true
+
 # Copyright
 copyright: "WSO2 Integrator: ICP - Documentation"
 
@@ -160,5 +163,5 @@ extra:
             - type: linkedin
               link: https://www.linkedin.com/company/wso2
       # site_version: Uncomment to specify a version
-      base_path: https://anuruddhal.github.io/docs-icp/
+      base_path: https://anuruddhal.github.io/docs-icp
 #     base_path: http://localhost:8000

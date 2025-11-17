@@ -4,7 +4,7 @@ WSO2 Integrator: ICP allows you to connect BI and MI runtimes to the ICP server 
 This guide will walk you through the steps to connect your integration runtime to the ICP server.
 
 - [Connecting WSO2 Integrator: BI Runtime to ICP](#connecting-wso2-integrator-bi-runtime-to-icp)
-- Connecting WSO2 Integrator: MI Runtime to ICP
+- [Connecting WSO2 Integrator: MI Runtime to ICP](#connecting-wso2-integrator-mi-runtime-to-icp)
 
 
 ## Prerequisites
@@ -17,7 +17,7 @@ Before you begin, ensure you have the following prerequisites:
 
 ## Connecting WSO2 Integrator: BI Runtime to ICP
 
-### Step 1: Extract BI runtime Config from ICP
+### Step 1: Extract BI runtime config from ICP
 1. Navigate to the ICP dashboard at `https://localhost:9445/`.
 2. Log in using your credentials. Default username and password are `admin`.
 3. Go to the project dashboard where you created your integration project.
@@ -60,3 +60,33 @@ Before you begin, ensure you have the following prerequisites:
 10. The BI runtime is now connected to the ICP server. You can monitor and manage your BI integration from the ICP dashboard.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png" alt="BI Connected" width="70%"></a>
 
+## Connecting WSO2 Integrator: MI Runtime to ICP
+
+### Step 1: Extract MI runtime config from ICP
+1. Navigate to the ICP dashboard at `https://localhost:9445/`.
+2. Log in using your credentials. Default username and password are `admin`.
+3. Go to the project dashboard where you created your integration project.
+4. Click on the integration you want to connect.
+5. In the integration details page, click on the **`Configure Runtime`** button located in the relevant environment card (e.g., Development, Production).
+6. Copy the MI runtime configuration snippet provided.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/mi_config_snippet.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_config_snippet.png" alt="MI Config Snippet" width="70%"></a>
+
+### Step 2: Configure MI Runtime
+1. Open the `<MI_HOME>\conf\deployment.toml` file in the MI runtime.
+2. Paste the copied configuration snippet into the `deployment.toml` file under the appropriate section.
+3. Save the `deployment.toml` file.
+4. Restart the MI runtime to apply the changes.
+5. Following console logs indicate a successful connection to the ICP server:    
+   ```
+     [2025-11-17 20:54:18,766]  INFO {ICPHeartBeatComponent} - Starting connector collection for ICP heartbeat
+     [2025-11-17 20:54:18,766]  INFO {ICPHeartBeatComponent} - No connectors/libraries found in SynapseConfiguration
+     [2025-11-17 20:54:18,766]  INFO {ICPHeartBeatComponent} - Starting registry resources collection for ICP heartbeat
+     [2025-11-17 20:54:18,766]  INFO {ICPHeartBeatComponent} - Registry root path: /Users/anuruddha/Downloads/wso2mi-4.5.0-SNAPSHOT/registry/../
+     [2025-11-17 20:54:18,771]  INFO {ICPHeartBeatComponent} - Found 21 registry resources to process
+     [2025-11-17 20:54:18,771]  INFO {ICPHeartBeatComponent} - Registry resources collection completed. Processed: 21, Errors: 0, Total registry resources collected: 21
+     [2025-11-17 20:54:18,771]  INFO {ICPHeartBeatComponent} - Registry resources response summary - Count: 21, Root directory: /Users/anuruddha/Downloads/wso2mi-4.5.0-SNAPSHOT/registry/../
+     [2025-11-17 20:54:18,775]  INFO {ICPHeartBeatComponent} - Full heartbeat payload: {"runtime":"f22d1d20-ae12-4904-9a89-14fd6cd48ea6","runtimeType":"MI","status":"RUNNING","environment":"dev","project":"My ICP Project","component":"first-mi-integration","version":"4.4.0","nodeInfo":{"platformName":"wso2-mi","platformVersion":"4.4.0","platformHome":"/Users/anuruddha/Downloads/wso2mi-4.5.0-SNAPSHOT","osName":"Mac OS X","osVersion":"15.3","javaVersion":"21.0.3"},"artifacts":{"apis":[],"proxyServices":[],"endpoints":[],"inboundEndpoints":[],"sequences":[{"name":"fault","type":"Sequence"},{"name":"main","type":"Sequence"}],"tasks":[],"templates":[],"messageStores":[],"messageProcessors":[],"localEntries":[{"name":"SERVER_IP","type":"LocalEntry","valueType":"Entry"},{"name":"fault","type":"LocalEntry","valueType":"SequenceMediator"},{"name":"main","type":"LocalEntry","valueType":"SequenceMediator"},{"name":"SERVER_HOST","type":"LocalEntry","valueType":"Entry"}],"dataServices":[],"carbonApps":[],"dataSources":[],"connectors":[],"registryResources":[{"name":"dropins","mediaType":"directory","properties":[]},{"name":"repository","mediaType":"directory","properties":[]},{"name":"diagnostics-tool","mediaType":"directory","properties":[]},{"name":"release-notes.html","mediaType":"text/plain","properties":[]},{"name":"wso2","mediaType":"directory","properties":[]},{"name":"tmlog2.log","mediaType":"text/plain","properties":[]},{"name":"tmlog.lck","mediaType":"text/plain","properties":[]},{"name":"bin","mediaType":"directory","properties":[]},{"name":"patches","mediaType":"directory","properties":[]},{"name":"updates","mediaType":"directory","properties":[]},{"name":"wso2carbon.pid","mediaType":"text/plain","properties":[]},{"name":"registry","mediaType":"directory","properties":[]},{"name":"lib","mediaType":"directory","properties":[]},{"name":"README.txt","mediaType":"text/plain","properties":[]},{"name":"192.168.1.4.tm2.epoch","mediaType":"text/plain","properties":[]},{"name":"dbscripts","mediaType":"directory","properties":[]},{"name":"LICENSE.txt","mediaType":"text/plain","properties":[]},{"name":"backup","mediaType":"directory","properties":[]},{"name":"dockerfiles","mediaType":"directory","properties":[]},{"name":"conf","mediaType":"directory","properties":[]},{"name":"tmp","mediaType":"directory","properties":[]}],"listeners":[{"protocol":"http","port":9201,"host":"0.0.0.0"},{"protocol":"https","port":9164,"host":"0.0.0.0"}],"systemInfo":{"serverName":"WSO2 Micro Integrator","version":"4.4.0","carbonHome":"/Users/anuruddha/Downloads/wso2mi-4.5.0-SNAPSHOT","javaVersion":"21.0.3","javaVendor":"Eclipse Adoptium","osName":"Mac OS X","osVersion":"15.3","osArch":"aarch64","memory":{"totalMemory":278921216,"freeMemory":117194640,"maxMemory":1073741824,"usedMemory":161726576}}},"runtimeHash":"mBKqftH+U2SkzU6yYbZDYg=="}
+
+   ```
+6. The MI runtime is now connected to the ICP server. You can monitor and manage your MI integration from the ICP dashboard.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png" alt="MI Connected" width="70%"></a>

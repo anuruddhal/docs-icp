@@ -25,10 +25,18 @@ Before you begin, ensure you have the following prerequisites:
 <a href="{{base_path}}/assets/img/get-started/connect-integration/integration_details.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/integration_details.png" alt="Integration Details" width="70%"></a>
 5. In the integration details page, click on the **`Configure Runtime`** button located in the relevant environment card (e.g., Development, Production).
 6. Copy the BI runtime configuration snippet provided.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/bi_config_snippet.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_config_snippet.png" alt="BI Config Snippet" width="70%"></a>
 
 ### Step 2: Configure BI Runtime
 1. Open the `Config.toml` file in the BI project. 
-2. Paste the copied configuration snippet into the `Config.toml` file under the appropriate section.
+2. Paste the copied configuration snippet into the `Config.toml` file section.
+```toml
+[anuruddha.wso2.icp]
+integration="my-first-bi-integration"
+project="My ICP Project"
+environment="dev"
+heartbeatInterval=10
+```
 3. Save the `Config.toml` file.
 4. Open the `Ballerina.toml` file in the BI project.
 5. Add the following configuration to the `Ballerina.toml` file:
@@ -60,6 +68,9 @@ Before you begin, ensure you have the following prerequisites:
 10. The BI runtime is now connected to the ICP server. You can monitor and manage your BI integration from the ICP dashboard.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png" alt="BI Connected" width="70%"></a>
 
+11. Navigate to **`Artifacts`** tab in the ICP dashboard to view the artifacts deployed in the BI runtimes.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/bi_artifacts.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_artifacts.png" alt="BI Artifacts" width="70%"></a>
+
 ## Connecting WSO2 Integrator: MI Runtime to ICP
 
 ### Step 1: Extract MI runtime config from ICP
@@ -90,3 +101,5 @@ Before you begin, ensure you have the following prerequisites:
    ```
 6. The MI runtime is now connected to the ICP server. You can monitor and manage your MI integration from the ICP dashboard.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png" alt="MI Connected" width="70%"></a>
+7. Navigate to **`Artifacts`** tab in the ICP dashboard to view the artifacts deployed in the MI runtimes.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/mi_artifacts.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_artifacts.png" alt="MI Artifacts" width="70%"></a>

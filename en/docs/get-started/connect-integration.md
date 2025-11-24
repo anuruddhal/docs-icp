@@ -68,6 +68,9 @@ heartbeatInterval=10
 10. The BI runtime is now connected to the ICP server. You can monitor and manage your BI integration from the ICP dashboard.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_connected.png" alt="BI Connected" width="70%"></a>
 
+11. Navigate to **`Artifacts`** tab in the ICP dashboard to view the artifacts deployed in the BI runtimes.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/bi_artifacts.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_artifacts.png" alt="BI Artifacts" width="70%"></a>
+
 ## Connecting WSO2 Integrator: MI Runtime to ICP
 
 ### Step 1: Extract MI runtime config from ICP
@@ -98,3 +101,5 @@ heartbeatInterval=10
    ```
 6. The MI runtime is now connected to the ICP server. You can monitor and manage your MI integration from the ICP dashboard.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_connected.png" alt="MI Connected" width="70%"></a>
+7. Navigate to **`Artifacts`** tab in the ICP dashboard to view the artifacts deployed in the MI runtimes.
+<a href="{{base_path}}/assets/img/get-started/connect-integration/mi_artifacts.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/mi_artifacts.png" alt="MI Artifacts" width="70%"></a>

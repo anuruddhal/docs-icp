@@ -22,7 +22,8 @@ This quick start guide will help you create your first integration project using
 
 ## Step 2: Create an Integration
 1. In the project dashboard, click on the **`+ Create`** button.
-<a href="{{base_path}}/assets/img/get-started/create-project/project_home.png"><img src="{{base_path}}/assets/img/get-started/create-project/project_home.png" alt="Add Integration" width="70%"></a>
+
+<a href="{{base_path}}/assets/img/get-started/create-project/project_home.png"><img src="{{base_path}}/assets/img/get-started/create-project/project_home.png" alt="Add Integration" width="70%"></a>     
 2. Fill in the integration details as below, and click on **`Create`** button.
 
 | **Field**       | Value                                | **Description**                                                             |

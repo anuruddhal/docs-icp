@@ -21,9 +21,9 @@ Before you begin, ensure you have the following prerequisites:
 1. Navigate to the ICP dashboard at `https://localhost:9445/`.
 2. Log in using your credentials. Default username and password are `admin`.
 3. Go to the project dashboard where you created your integration project.
-4. Click on the integration you want to connect.
+4. Click on the integration you want to connect (**`My First BI Integration`**).
 <a href="{{base_path}}/assets/img/get-started/connect-integration/integration_details.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/integration_details.png" alt="Integration Details" width="70%"></a>
-5. In the integration details page, click on the **`Configure Runtime`** button located in the relevant environment card (e.g., Development, Production).
+5. In the integration details page, click on the **`Configure Runtime`** button located in the relevant environment card (e.g. Development, Production).
 6. Copy the BI runtime configuration snippet provided.
 <a href="{{base_path}}/assets/img/get-started/connect-integration/bi_config_snippet.png"><img src="{{base_path}}/assets/img/get-started/connect-integration/bi_config_snippet.png" alt="BI Config Snippet" width="70%"></a>
 

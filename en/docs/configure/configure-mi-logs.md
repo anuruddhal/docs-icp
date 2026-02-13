@@ -16,7 +16,7 @@ Before you begin, ensure you have the following prerequisites:
 
 1. Connect WSO2 Integrator: MI runtime to ICP. Please refer to the [Connecting WSO2 Integrator: MI Runtime to ICP]({{base_path}}/get-started/connect-integration/#connecting-wso2-integrator-mi-runtime-to-icp).
 
-2. Configure the log layout pattern of the `CARBON_LOGFILE` log appender in the `log4j2 properties` to support the ICP log structure.
+2. Configure the log layout pattern of the `CARBON_LOGFILE` log appender in the `log4j2.properties` to support the ICP log structure.
 {% raw %}
     ```properties
     appender.CARBON_LOGFILE.layout.pattern = [%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}] %5p {%c} %X{Artifact-Container} - %m%ex ${sys:icp.runtime.log.suffix:-}%n
@@ -30,13 +30,13 @@ Before you begin, ensure you have the following prerequisites:
     - Append the runtime id to the log.
 
 
-Optionally, If there is a requirement to have the log file in a different location or duplicate it, you can either change the `appender.CARBON_LOGFILE.fileName` or add a new appender identical to the `CARBON_LOGFILE` with the required configuration changes.
+Optionally, if there is a requirement to have the log file in a different location or duplicate it, you can either change the `appender.CARBON_LOGFILE.fileName` or add a new appender identical to the `CARBON_LOGFILE` with the required configuration changes.
 
 ### Step 2: Configure Fluent Bit and OpenSearch
 
 #### 1. Environment Variables (.env)
 
-Place the below environment variabled in a `.env` file.
+Place the below environment variables in a `.env` file.
 
 ```env
 OPENSEARCH_INITIAL_ADMIN_PASSWORD=<strong-password>
@@ -48,7 +48,7 @@ MI_LOG_FILE_NAME=wso2carbon.log
 |----------|-------------|
 | `OPENSEARCH_INITIAL_ADMIN_PASSWORD` | Admin password for OpenSearch (min 8 chars, must include uppercase, lowercase, digit, and special character) |
 | `MI_LOG_FILE_PATH` | Absolute path to the MI logs directory |
-| `MI_LOG_FILE_NAME` | Name of the MI log file as configured in the MI `log4j2.propreties` file, `CARBON_LOGFILE` log appender (typically `wso2carbon.log`) |
+| `MI_LOG_FILE_NAME` | Name of the MI log file as configured in the MI `log4j2.properties` file, `CARBON_LOGFILE` log appender (typically `wso2carbon.log`) |
 
 #### 2. Docker Compose Setup
 
@@ -144,7 +144,7 @@ fluent-bit:
     - path/to/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
     - path/to/parsers.conf:/fluent-bit/etc/parsers.conf
     - path/to/scripts:/fluent-bit/scripts
-    - ${MI_LOG_FILE_PATH}/${MI_LOG_FILE_NAME}:/var/log/mi/${MI_LOG_FILE_NAME}:ro
+    - ${MI_LOG_FILE_PATH}:/var/log/mi:ro
     # Persist position database
     - fluent-bit-db:/fluent-bit/db
     # Persist buffer storage
@@ -159,7 +159,7 @@ fluent-bit:
 **Key configurations:**
 
 - Mounts Fluent Bit configuration files, parsers and lua scripts into the container.
-- Mounts MI log file into the container.
+- Mounts MI log directory into the container.
 - Persists position database (tracks read position in log files).
 - Persists buffer storage (prevents data loss on restart).
 - Waits for OpenSearch to be healthy and index templates to be created before starting.
@@ -180,7 +180,7 @@ opensearch-setup:
     - path/to/setup:/setup
   depends_on:
     opensearch-dashboards:
-    condition: service_started
+      condition: service_started
   command: >
     sh -c "
     echo 'Waiting for OpenSearch to be ready...' &&
@@ -234,7 +234,7 @@ It is important to ensure the index template is created before Fluent Bit starts
 # Input from Micro Integrator log files
 [INPUT]
    Name              tail
-   Path              /var/log/mi/*.log
+   Path              /var/log/mi/${MI_LOG_FILE_NAME}
    Tag               mi.*
    # References the multiline parser for stack traces
    multiline.parser  mi_multiline
@@ -402,13 +402,13 @@ The index template defines field mappings that are automatically applied to new 
 cd icp_server
 
 # Start all services
-docker-compose -f path/to/docker-compose.observability.yml --env-file path/to/.env up --build --force-recreate -d
+docker compose -f path/to/docker-compose.observability.yml --env-file path/to/.env up --build --force-recreate -d
 
 # View logs
 docker compose -f path/to/docker-compose.observability.yml logs -f fluent-bit
 
 # Stop all services
-docker-compose -f path/to/docker-compose.observability.yml down
+docker compose -f path/to/docker-compose.observability.yml down
 ```
 
 ## Verifying the Setup

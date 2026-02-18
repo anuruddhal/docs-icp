@@ -7,7 +7,7 @@ Before you begin, ensure you have the following prerequisites:
 
 - **ICP server up and running**: If you haven't set up the ICP server yet, please refer to the [Quick Start Guide]({{base_path}}/get-started/quick-start-guide/) to set up the ICP server.
 - **Integration project created in ICP**: If you haven't created a project yet, please refer to the [Create an Integration Project]({{base_path}}/get-started/create-project/) guide.
-- **BI/MI runtime installed and running**: You can download the WSO2 Integrator: BI Runtime or WSO2 Integrator: MI Runtime from the [WSO2 website](https://wso2.com/integrator/).
+- **MI runtime installed and running**: You can download the WSO2 Integrator: MI Runtime from the [WSO2 website](https://wso2.com/integrator/).
 - Docker and Docker Compose installed.
 
 ## Publishing WSO2 Integrator: MI logs to ICP
@@ -17,18 +17,18 @@ Before you begin, ensure you have the following prerequisites:
 1. Connect WSO2 Integrator: MI runtime to ICP. Please refer to the [Connecting WSO2 Integrator: MI Runtime to ICP]({{base_path}}/get-started/connect-integration/#connecting-wso2-integrator-mi-runtime-to-icp).
 
 2. Configure the log layout pattern of the `CARBON_LOGFILE` log appender in the `log4j2.properties` to support the ICP log structure.
+
 {% raw %}
-    ```properties
-    appender.CARBON_LOGFILE.layout.pattern = [%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}] %5p {%c} %X{Artifact-Container} - %m%ex ${sys:icp.runtime.log.suffix:-}%n
-    ```
+```properties
+appender.CARBON_LOGFILE.layout.pattern = [%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}] %5p {%c} %X{Artifact-Container} - %m%ex ${sys:icp.runtime.log.suffix:-}%n
+```
 {% endraw %}
-    
-    This will,
 
-    - Change the timestamp format to the ICP supported format.
-    - Log the artifact container where applicable.
-    - Append the runtime id to the log.
+This will,
 
+- Change the timestamp format to the ICP supported format.
+- Log the artifact container where applicable.
+- Append the runtime id to the log.
 
 Optionally, if there is a requirement to have the log file in a different location or duplicate it, you can either change the `appender.CARBON_LOGFILE.fileName` or add a new appender identical to the `CARBON_LOGFILE` with the required configuration changes.
 
@@ -62,7 +62,7 @@ OpenSearch acts as the main search and analytics engine for storing and querying
 
 ```yaml
   opensearch:
-    image: opensearchproject/opensearch:latest
+    image: opensearchproject/opensearch:3.5.0
     container_name: opensearch
     env_file:
       - /path/to/.env
@@ -110,7 +110,7 @@ This service will be required if you are intending to use OpenSearch dashboards 
 
 ```yaml
 opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:latest
+    image: opensearchproject/opensearch-dashboards:3.5.0
     container_name: opensearch-dashboards
     ports:
       - "5601:5601"
@@ -134,7 +134,7 @@ Fluent Bit acts as the log collector and processor that reads MI logs and sends 
 
 ```yaml
 fluent-bit:
-  image: fluent/fluent-bit:latest
+  image: fluent/fluent-bit:4.2.2
   container_name: fluent-bit
   ports:
     - "2020:2020"
@@ -171,7 +171,7 @@ One-time initialization service that creates index templates.
 
 ```yaml
 opensearch-setup:
-  image: curlimages/curl:latest
+  image: curlimages/curl:8.18.0
   container_name: opensearch-setup
   env_file:
     - path/to/.env

@@ -50,10 +50,10 @@ These changes will:
 - Append the runtime id to the log.
 - Change the rollover strategy and the file pattern to allow Fluent Bit to detect new log files created daily.
 
-!!!Note
+!!! note
     Optionally, if you want to keep the default configurations of the `CARBON_LOGFILE` appender as is or if there is a requirement to have the log file duplicated in a different location, you can add a new appender identical to the `CARBON_LOGFILE` in the `log4j2.properties` file.
 
-{% raw %}
+    {% raw %}
     ```properties
     # Add the new appender to the list of appenders
     appenders = CARBON_CONSOLE, CARBON_LOGFILE, MI_CARBON_LOGFILE,...
